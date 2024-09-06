@@ -1,6 +1,6 @@
 # FolioWatcher
 
-Docker image to periodically check the **Folio Society** website for new additions to the **Last Chance to Buy page**.
+Docker image to periodically check the **Folio Society** website for new additions to the **Last Chance to Buy** page.
 
 ## Docker
 

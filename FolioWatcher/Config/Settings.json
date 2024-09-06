@@ -1,0 +1,12 @@
+{
+  "SmtpHost": "",
+  "SmtpPort": "",
+  "SmtpEncryption": "",
+  "SmtpUsername": "",
+  "SmtpPassword": "",
+  "SmtpDefaultFromEmail": "",
+  "SmtpDefaultFromName": "",
+  "SmtpToEmail": "",
+  "SmtpToName": "",
+  "Products": []
+}

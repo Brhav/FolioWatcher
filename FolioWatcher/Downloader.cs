@@ -34,23 +34,27 @@ namespace FolioWatcher
                 .Select(a => a.InnerHtml.Trim())
                 .ToList() ?? new List<string>();
 
+            Console.WriteLine($"Current products: {string.Join(", ", currentProducts)}");
+
             var newProducts = currentProducts
                 .Where(product => !previousProducts.Contains(product))
                 .ToList();
 
-            var displayProducts = currentProducts
-                .Select(product => newProducts.Contains(product) ? product + " (+)" : product)
-                .ToList();
+            Console.WriteLine($"New products: {string.Join(", ", newProducts)}");
 
             if (newProducts.Any())
             {
-                Console.WriteLine("Sending email...");
+                Console.WriteLine("Sending new products email...");
+
+                var displayProducts = currentProducts
+                    .Select(product => newProducts.Contains(product) ? product + " (+)" : product)
+                    .ToList();
 
                 var emailer = new Emailer(settings);
 
                 await emailer.SendEmailAsync(settings.SmtpToEmail, settings.SmtpToName, "Folio Society Last Chance to Buy", string.Join("<br />", displayProducts));
 
-                Console.WriteLine("Sending complete");
+                Console.WriteLine("Sending new products email complete");
             }
 
             settings.Products = currentProducts;
